@@ -5,7 +5,7 @@
 library(shiny)
 
 # Define the fields we want to save from the form
-fields <- c("name", "age", "from", "gender", "knowledge")
+fields <- c("name", "age", "from", "gender", "knowledge", "rate_enjoy", "thoughts", "suggestions", "updates")
 
 #setup dropbox and store the data somewhere
 library(rdrop2) 
@@ -61,8 +61,12 @@ shinyApp(
         radioButtons("from", "Where are you from?", c("North America", "South America", "Africa", "Europe", "Asia", "Australia", "Antarctica")),
         radioButtons("gender", "Gender?", c("Female", "Male", "Non-binary")),
         radioButtons("knowledge", "Rate your current knowledge about primates:", c("I am a primatologist, so you better have your facts straight!", "I have taken a few classes...", "I have read some things...", "What’s a primate?" )),
+        radioButtons("rate_enjoy", "19. Rate your enjoyment of this survey (1= low, 5 =  high", c("1","2","3","4", "5")),
+        radioButtons("thoughts", "20. Do you think this was an innovative way to learn more about primates?", c("I did this survey again to make sure I saw all the photos and read all the facts", "I am sending this survey to everyone I know!", "I have some reservations", "No")),
+        textInput("suggestions", "21. Do you have any suggestions, questions or comments about the survey? (i.e. Was it satisfactorily cute?)", ""),
+        textInput("updates", "22. If you would like to receive more information about the outcome of this survey, or would just like to be bombarded with cute primate photos every now and again, please leave us with your email address below.", ""),
     
-        actionButton("submit", "Submit")
+        actionButton("submit", "click me to submit")
     ),
     server = function(input, output, session) {
         
