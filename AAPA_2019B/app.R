@@ -29,6 +29,19 @@ loadData <- function() {
 }
 
 
+#below is code for random monkey image. right now 4 place holders
+#but seems to not work since once it is uploaded as an app this is only 
+#run the first time...need to figure this out.
+#might need a reactive shiny app 'hidden' in the UI or something
+
+
+
+x <- sample(1:4, 4, replace = FALSE)
+pic1 <- paste('monkey', x[1],'.jpg', sep = '')
+pic2 <- paste('monkey', x[2],'.jpg', sep = '')
+pic3 <- paste('monkey', x[3],'.jpg', sep = '')
+pic4 <- paste('monkey', x[4],'.jpg', sep = '')
+
 
 ui <- dashboardPage(
     dashboardHeader(title = "Aye know Aye’m pretty"),
@@ -48,16 +61,16 @@ ui <- dashboardPage(
                             # The id lets us use input$tabset1 on the server to find the current tab
                             id = "tabset1", height = "250px",
                             tabPanel("set 1", "First set",
-                                     radioButtons("set_1", "which do you prefer", c(1,2)),
+                                     radioButtons("set_1", "which do you prefer", c(pic1,pic2)),
                                      h6(" first"),
-                                     tags$img(src = "monkey1.jpg", height = 100, width = 100),
-                                     tags$img(src = "monkey2.jpg", height = 100, width = 100)
+                                     tags$img(src = pic1, height = 100, width = 100),
+                                     tags$img(src = pic2, height = 100, width = 100)
                                      
                                      ),
                             tabPanel("set 2", "Second set",
-                                     radioButtons("set_2", "which do you prefer", c(1,2)),
+                                     radioButtons("set_2", "which do you prefer", c(pic3,pic4)),
                                      h6(" Second set"),
-                                     tags$img(src = "monkey3.jpg", height = 100, width = 100),
+                                     tags$img(src = pic3, height = 100, width = 100),
                                      tags$img(src = "monkey4.jpg", height = 100, width = 100)
                                      
                                      
