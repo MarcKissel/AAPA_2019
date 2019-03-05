@@ -1,0 +1,12 @@
+name: AAPA_2019_temp
+title: AAPA_2019_temp
+username:
+account: marckissel
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 765595
+bundleId: 1917882
+url: https://marckissel.shinyapps.io/AAPA_2019_temp/
+when: 1551815731.78636
+asMultiple: FALSE
+asStatic: FALSE
