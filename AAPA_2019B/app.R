@@ -36,11 +36,11 @@ loadData <- function() {
 
 
 
-x <- sample(1:4, 4, replace = FALSE)
-pic1 <- paste('monkey', x[1],'.jpg', sep = '')
-pic2 <- paste('monkey', x[2],'.jpg', sep = '')
-pic3 <- paste('monkey', x[3],'.jpg', sep = '')
-pic4 <- paste('monkey', x[4],'.jpg', sep = '')
+#x <- sample(1:4, 4, replace = FALSE)
+#pic1 <- paste('monkey', x[1],'.jpg', sep = '')
+#pic2 <- paste('monkey', x[2],'.jpg', sep = '')
+#pic3 <- paste('monkey', x[3],'.jpg', sep = '')
+#pic4 <- paste('monkey', x[4],'.jpg', sep = '')
 
 
 ui <- dashboardPage(
@@ -71,7 +71,7 @@ ui <- dashboardPage(
                                      radioButtons("set_2", "which do you prefer", c(pic3,pic4)),
                                      h6(" Second set"),
                                      tags$img(src = pic3, height = 100, width = 100),
-                                     tags$img(src = "monkey4.jpg", height = 100, width = 100)
+                                     tags$img(src = pic4, height = 100, width = 100)
                                      
                                      
                                      
@@ -107,6 +107,12 @@ ui <- dashboardPage(
 
 server <- function(input, output, session) {
     
+    x <- sample(1:4, 4, replace = FALSE)
+    pic1 <- paste('monkey', x[1],'.jpg', sep = '')
+    pic2 <- paste('monkey', x[2],'.jpg', sep = '')
+    pic3 <- paste('monkey', x[3],'.jpg', sep = '')
+    pic4 <- paste('monkey', x[4],'.jpg', sep = '')
+       
     # Whenever a field is filled, aggregate all form data
     formData <- reactive({
         data <- sapply(fields, function(x) input[[x]])
